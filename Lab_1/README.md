@@ -20,26 +20,26 @@
 ![q1](awk_1)
 
 ### 2- Print login, full name (comment) and home directory of all users.( Print each line preceded by a line number)
-[q2](awk_2)
+![q2](awk_2)
 
 ### 3- Print login, uid and full name (comment) of those uid is greater than 500
-[q3](awk_3)
+![q3](awk_3)
 
 ### 4- Print login, uid and full name (comment) of those uid is exactly 500
-[q4](awk_4)
+![q4](awk_4)
 
 ### 5- Print line from 5 to 15 from /etc/passwd
-[q5](awk_5)
+![q5](awk_5)
 
 ### 6- Change lp to mylp
 - Using gsub():
-[q6_1](awk_6_1)
+![q6_1](awk_6_1)
 
 - Implementation from scratch:
-[q6_2](awk_6_2)
+![q6_2](awk_6_2)
 
 ### 7- Print all information about greatest uid.
-[q7](awk_7)
+![q7](awk_7)
 
 ### 8- Get the sum of all accounts id’s.
-[q8](awk_8)
+![q8](awk_8)
