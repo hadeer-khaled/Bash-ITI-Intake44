@@ -32,7 +32,7 @@
 ### 7. Create a script called mytest where:
 - a. It check the type of the given argument (file/directory)
 - b. It check the permissions of the given argument (read/write/execute)
-![q8](q8)
+![q87](q7)
 
 ### 8. Create a script called myinfo where:
 - a. It asks the user about his/her logname.
