@@ -12,6 +12,7 @@
 - Numbers.
 - Mix.
 - Nothing.
+
 ![q2](2)
 
 ### 3. Write a script called mychmod using for utility to give execute permission to all files and directories in your home directory.
@@ -26,8 +27,7 @@ Note: write the mail body in a file called mtemplate.
 ![q5](5)
 
 
-### 6. Write a script called chkmail to check for new mails every 10 seconds. Note: mails are
-saved in /var/mail/username.
+### 6. Write a script called chkmail to check for new mails every 10 seconds. Note: mails are saved in /var/mail/username.
 ![q6](6)
 
 
