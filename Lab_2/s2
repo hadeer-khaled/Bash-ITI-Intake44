@@ -1,0 +1,2 @@
+echo "Value of x Approach 1: $x "
+echo "Value of x Approach 2: $1 "

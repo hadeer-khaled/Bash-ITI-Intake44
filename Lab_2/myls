@@ -1,0 +1,45 @@
+#!/bin/bash
+if [ $# -eq 0 ]; 
+then
+    ls "$PWD"
+elif [ $# -eq 1 ]; then
+    if [ "$1" = "-l" ]; 
+    then
+        ls -l
+    elif [ "$1" = "-a" ];
+    then
+        ls -a
+    elif [ "$1" = "-d" ]; 
+    then
+        ls -d 
+    elif [ "$1" = "-i" ]; 
+    then
+        ls -i
+    elif [ "$1" = "-R" ]; 
+    then
+        ls -R
+    else
+        ls "$1"
+    fi
+elif [ $# -eq 2 ]; 
+then
+    if [ "$1" = "-l" ]; 
+    then
+        ls -l "$2"
+    elif [ "$1" = "-a" ]; 
+    then
+        ls -a "$2"
+    elif [ "$1" = "-d" ]; 
+    then
+        ls -d "$2" 
+    elif [ "$1" = "-i" ]; 
+    then
+        ls -i "$2"
+    elif [ "$1" = "-R" ]; 
+    then
+        ls -R "$2"
+    fi
+else
+    echo "Usage: $0 [OPTION]... [FILE]..."
+fi
+

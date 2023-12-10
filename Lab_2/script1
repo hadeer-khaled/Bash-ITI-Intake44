@@ -1,0 +1,4 @@
+#! /bin/bash
+echo "Please Enter your name"
+read ans
+echo "Hello $ans"
