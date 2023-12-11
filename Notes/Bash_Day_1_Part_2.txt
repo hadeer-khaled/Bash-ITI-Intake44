@@ -1,0 +1,181 @@
+	AWK
+----------------------------------
+
+- scan file record by record.
+- record is line by default. 
+- record separator (RS) is enter by default.
+- $0 is the entire record.
+- NR is the record number.
+
+- ecah record consists of fields which by default words
+- field separator (FS) is space by default.
+- NF is number of fields in a record.
+- $1 is the first field, $2 is the second field, .....
+- to change the fiels separator use option -F (ex: -F:  --> : will be the field separator)
+
+--------------------------------------
+
+Syntax: awk 'pattern { action }' input_file
+
+- pattern: An optional pattern that specifies when to perform the action. 
+	   If no pattern is provided, the action is applied to every line.
+	   ex: BEGIN , END , /pattern/
+	     
+
+EX1) awk -F: '{print $1,$3}' /etc/passwd/ 
+     print the first and the third field from /etc/passwd/ 
+     -F: coz the field separator in /etc/passwd/ is :
+     
+EX2) awk -F '$2 > 50 {print $1}' filename
+     print the first field if the second field > 50
+     
+EX3)    Name        Math  English  Science
+	John          85    90       88
+	Alice         92    88       95
+	Bob           78    85       80
+	Eve           95    92       88
+	
+awk 'NR > 1 && ($2 > 90 || $3 > 90 || $4 > 90) {print $1}' grades.txt
+
+output:
+	Alice
+	Eve
+
+----------------------------------------
+
+BEGIN Pattern
+-------------
+- block is executed before processing any input lines.
+- It is typically used for initialization or setup tasks that need to be performed once at the beginning of the AWK program.
+- is often used to change the value of the built-in variables, FS, RS.
+
+EX1)  awk 'BEGIN{FS =":" ; print "Number of field in ecah line:"} {print "\t\t"NF}' /etc/passwd
+
+
+END Pattern
+------------
+- block is executed after processing all input lines. 
+
+EX1) awk -F: 'BEGIN{sum=0} {sum += $3} END{print "Sum:", sum}' /etc/passwd
+     print the sum of all user ids
+
+
+if condition
+-------------
+
+EX1)numbers.txt:     10
+		     25
+     	      	     42
+        	      7 
+ 
+awk '{ if ($1 >= 20) 
+	   print $1 " is greater than or equal to 20" ;
+       else
+           print $1 " is less than 20" }'   numbers.txt
+           
+           
+EX2)example.txt Line 1
+     		Line 2
+     		Line 3
+
+ awk '  BEGIN {
+	   	 print "Processing begins..."
+	    	 total_lines = 0 
+	      }
+
+	      {
+		    total_lines++
+	      }
+
+	END   {
+	         if (total_lines == 0) 
+	         {
+		        print "No lines found."
+	         } 
+	         else if (total_lines == 1) 
+	         {
+	        	print "One line found."
+	         } 
+	         else 
+	         {
+			print total_lines " lines found."
+	         }
+
+	         print "Processing ends."
+	    } 
+	    
+    ' example.txt
+
+
+Relational Operators
+---------------------
+== , != , > , >= , < , <= 
+~ (Match regular expression ) ex: awk '{if ($1~"adm") print $0}' /etc/passwd
+!~ (Not matched by regular expression)
+
+
+while loop
+----------------
+awk -F: '
+	BEGIN 
+	{
+	    print "Using while loop:"
+	    i = 1
+	}
+	{
+	    while (i <= NF) 
+	    {
+		print "User:", $1, "| Home Directory:", $6
+		i++
+	    }
+	}
+	' /etc/passwd
+
+
+For Loop
+---------
+awk -F: 'BEGIN {print "Using For loop:"}
+        {
+            for(i=1; i<NF ; i++)
+            {                   
+                print "User:", $1, "| Home Directory:", $6
+            }                                             
+        }    
+        ' /etc/passwd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

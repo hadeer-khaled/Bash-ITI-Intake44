@@ -1,0 +1,146 @@
+export
+------
+is used to make a variable accessible to child processes of the current script or shell session.
+
+Ex)
+
+################### parent_script.sh 
+#!/bin/bash
+
+MY_VARIABLE="Hello, World!"
+
+export MY_VARIABLE
+
+./child_script.sh
+
+################### child_script.sh
+
+#!/bin/bash
+
+# Access the exported variable
+echo $MY_VARIABLE
+
+_____________________________________________
+newgrp
+--------
+change my primary group temporary
+ex: newgrp groupname
+to exit ==> exit
+_________________________________________________
+to know if command built-in or not ==> type commandname
+-------------------------------------------------
+How to execute fiel.sh ?
+
+way 1) write absolute path or relative path in terminal
+way 2) PATH=$PATH: absolute path then write filename in terminal
+---------------------------------------------------
+Notice that: 
+	- By default, when i execute a file, it opens a new shell.
+	- To prevent this ---> use "source" keyword OR " . "
+	EX) " source ./file.sh " OR " . ./file.sh  "
+---------------------------------------------------------------
+Types of Variables
+-------------------
+1) Local/user variable
+ 	- name=hadeer (NOT "name = hadeer" --> will give ERROR, NO SPACES before and after = )
+	
+	- name="hadeer khaled"
+	
+	- x=5+5 
+	  echo $x --> 5+5  (Coz by default variable has string datatype)
+
+
+  # to declare integer variable:
+	typeset -i x
+	x=5
+	x=$x+5
+	echp x --> 10
+	
+	NOTE: if put string value inside integer x ----> will store it as 0
+	x=hello
+	echo x --> 0
+	
+  # how to do arithmatic operations without typeset ?
+	1) using let
+		x=5
+		let x=$x+5 (use let to do arithmatic operations)(NO SPACES)
+		echo $x --> 10
+		
+		x=hello
+		echo x --> $hello (NOT 0 as in typeset)
+	
+	2) using (( ))
+		x=5
+		(( x = $x + 5 ))   (use (( )) to do arithmatic operations) (CAN USE SPACES INSIDE (( )) )
+		echo $x --> 10
+		
+		x=hello
+		echo x --> $hello (NOT 0 as in typeset)
+	
+
+# concatination
+	EX:
+	state=cal
+	echo ${state}ifornia  (use {})
+
+
+# to assign output of command to variable --> use ` ` OR $()
+	EX:
+	var=`ls` OR var=$(ls)
+	
+	NOOOTTEEEEE: 
+	                                                                                                                                                                                                                                                                                                           
+	                                                                                                                                                                                                     لو ضيفت فايل جديد في المكان اللي بعمل فيه ls مش هيظهر في الvar .
+
+
+
+
+2) Environment Variables
+-------------------------
+	To set a variable:
+	 	VAR=value
+	 	OR
+	 	export VAR=value --> to let the all child proccesses see it.
+	 
+	To display all Env variables:
+	 	env or printenv -->  list all env variable that has value.
+
+	To get the value stored in variable:
+		echo $VAR 
+		OR
+		printenv VAR
+		
+NOTE about SHELL variavle :
+	- it contain the default shell.
+	- If you change it, it dosn't mean you change your default shell
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

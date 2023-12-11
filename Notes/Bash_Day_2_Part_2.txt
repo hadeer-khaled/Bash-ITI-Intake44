@@ -1,0 +1,114 @@
+3) Predefined variables
+-----------------------
+$# --> number of arguments
+$* --> list of all arguments
+$0 --> script name
+$1, $2 --> first, second argument, etc...
+$? -->  holds the exit status of the last executed command. 
+	A value of 0 usually indicates success, while non-zero values indicate a failure.
+	
+------------------------------------------------------------------------------------------
+Reading input from user
+------------------------
+EX1) echo "Enter you full name"
+     read ans
+     
+     hadeer khaled nabil awad
+     ans --> hadeer khaled nabil awad 
+     
+     
+EX2) echo "Enter you full name"
+     read first midlle last
+     
+     "hadeer khaled" nabil awad
+     first  --> "hadeer 
+     midlle --> khaled" 
+     last   --> nabil awad
+
+EX3) echo "Enter you full name"
+     read first midlle last
+     
+     hadeer\ khaled nabil awad
+     first  --> hadeer khaled
+     midlle --> nabil
+     last   --> awad
+
+--------------------------------------------------------------------
+if condition
+-------------
+if [condition]
+then
+
+else if [condition]
+
+else
+
+fi
+
+Logical operators
+------------------
+A) String
+	[ str = str ] 
+	[ str != str ]
+	[ str ]     -> true if str is not null
+	[ -z str ]  -> true is str lenght is zero
+	[ -n str ]  -> true is str lenght is nonzero
+	
+B) Integer
+	[ $x -eq $y ] or (( $x == $y ))
+	[ $x -ne $y ] or (( $x != $y ))
+	[ $x -gt $y ] or (( $x > $y ))
+	[ $x -ge $y ] or (( $x >= $y ))
+	[ $x -lt $y ] or (( $x < $y ))
+	[ $x -le $y ] or (( $x <= $y ))
+	
+	
+if ! [ condition ] 
+if [ cond -a cond ] --> and
+if [ cond -o cond ] --> or
+if [ -d dirname ]  --> true if the dirname exists and it is a directory 
+if [ -f filename ]  --> true if the file exist
+if [ -h filename ]  --> true if the file is softlink
+if [ -r filename ]  --> true if the file is readable
+if [ -w filename ]  --> true if the file is writable
+if [ -x filename ]  --> true if the file is executable
+
+-----------------------------------------------------------------------
+Quoting
+-------
+
+echo "today's data is date"    ---> today's data is date
+echo "today's data is $date"   ---> today's data is 
+echo "today's data is $(date)" ---> today's data is data Mon Dec 11
+echo "today's data is `date` " ---> today's data is data Mon Dec 11
+
+echo "$HOME" --> /home/hadeer/
+echo "\$HOME" --> $HOME
+
+
+how let PS1 shows the current directory?
+	- Wrong solution: PS1=$(PWD) 
+	هتتغير ل  قيمة ال path اللي واقفه فيه دلوقتي بس. يعني لو غيرت مكاني بعد م كتبت السطر ده, ال PS1 مش هتاخد المكان الجديد.
+	- Right solution: 
+		1) Using PWD Env variable ==> PS1='$PWD'
+		2) Using pwd command ==> PS1='`pwd`'  OR  PS1='$(pwd)'
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

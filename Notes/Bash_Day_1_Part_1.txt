@@ -1,0 +1,176 @@
+/bin/   ==> contains user commands
+/sbin/  ==> contains sudo user commands
+/etc/   ==> configs files
+/media/ ==> external devices (flash memory , hard disk)
+/mnt/   ==> conatin windows partitions.
+/boot/  ==> conatins files that needed during booting like kernel files.
+/opt/   ==> options for third party software
+/root/  ==> home directory of root
+----------------------------------------------------------------------------
+Notes:
+-------
+1) can write in a file using ^ cat ^
+
+   EX: cat > file
+       i write in file using cat
+       
+       => ctrl+d to end writing
+  ---------------------------------------------
+2) can write using echo 
+
+   EX:  echo " hello Hadeer " > file OR   echo hello Hadeer  > file
+     
+  ---------------------------------------------
+   
+3)        dir1 
+        /      \  
+       /        \    
+     dir2      file1 
+     /  \
+    /    \
+  file2  dir3 
+          |
+        file3
+        
+ ==>[in dir1] ls * (me and my child only)
+ 
+     file1
+   
+     dir2:
+         file2 dir3
+     
+ ==>[in ../dir] ls ./dir (the dest only)
+     fil1 
+     dir2     
+   
+  ---------------------------------------------
+4) Pkill vs kill
+ 
+   - pkill:
+    take name of process so will kill all proccesses with that name(can be multiple proccesses with same name but diff ID)
+   
+   - kill: 
+     take the ID of a proccess so if there a multiple proccesses with the same but diff id will kill tha process that specific ID.
+     
+ -----------------------------------------------
+ 
+5) split
+
+   EX: split -l 10 --numeric-suffixes=1 -a 1 /etc/passwd passwd
+   Options:
+   -l ==> number of lines (chunk size)
+   --numeric-suffixes ==> suffix start with
+   -a ==> number of suffixes
+   /etc/passwd ==> source file
+   passwd ==> prefix used in the name of dest files
+  
+------------------------------------------------------------------------------------------------
+sed
+---
+ - Non interactive editor.
+ - doesn't cahange the original file.
+ - it print each line by default (to prvent that, use -n option)
+ - syntax:
+ 	sed OPTIONS 'COMMAND' INPUT_FILE
+ - Here are some common sed commands:
+ 
+ 	1) substitude (s):
+ 	
+ 	   Ex: sed 's/oldpattern/newpattern/g' file.txt (g ==> To replace all occurrences in a line)
+ 	   will print the all lines including the changed ones
+ 	   
+ 	   Ex: sed 's/oldpattern/newpattern/gp' file.txt 
+ 	   will print the all lines including the changed ones + the changes ones again coz 'p'
+ 	   
+ 	   Ex: sed -n 's/oldpattern/newpattern/g' file.txt 
+ 	   will not print any thing.
+ 	   
+ 	   Ex: sed -n 's/oldpattern/newpattern/gp' file.txt 
+ 	   will the changed ones only coz of '-n' and 'p'
+ 	   
+ 	   Ex: sed 's/[0-9]\+/NUM/' file.txt
+ 	   This replaces any sequence of digits with the string "NUM".
+
+ 	   
+        2) Delete (d):
+        
+           Ex: sed '3d' file
+           wiil delete the third line and do its default bahvior of printing so it will print all lines except the 		   deleted on.
+           
+           Ex: sed '1,3d' file
+           will delete from the line 1 to the line 3.
+           
+           
+           Ex: sed '$d' file
+           will delete the last line.
+           
+        3) Print (p):
+        
+           Ex: sed -n '/pattern/p' file
+           will print the pattern line coz of 'p'
+           
+           
+           Ex: sed -n '3/pattern/p' file
+           will print from line 3 to the pattern line.
+           
+        4) Insert (i): To insert text before a specific line number:
+           
+           Ex: sed '2i\This is a new line' file
+           
+        5) Append (a): To append text after a specific line number:
+        
+           Ex: sed '3a\This line is added' file.txt
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+ 	
+ 	
+ 	   
+ 	   
+ 	   
+ 
+
+   
+   
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
